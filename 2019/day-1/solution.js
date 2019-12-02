@@ -101,7 +101,7 @@ const input = [
   102463
 ];
 
-function fuelRequired (mass) {
+function fuelRequiredPerModule (mass) {
   const fuelWeight =  Math.floor(mass / divider)-subtract; 
   if (fuelWeight <= 0) return 0;
   return fuelWeight;
@@ -109,7 +109,7 @@ function fuelRequired (mass) {
 
 function totalFuelNeeded (input) {
   return input.reduce( (total, module, i) => {
-    const fuelNeeded = fuelRequired(module);
+    const fuelNeeded = fuelRequiredPerModule(module);
     return total + fuelNeeded;
   }, 0)
 }
